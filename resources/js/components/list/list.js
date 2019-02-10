@@ -2,8 +2,8 @@ import React, {Component} from 'react'
 import CommentApp from '../CommentApp'
 import TopNav from '../topnav/topnav'
 import { BrowserRouter as Router, Route, NavLink} from 'react-router-dom'
-import leftlogo from '../static/left-logo.jpg'
-import logo from '../static/avatar.png'
+// import leftlogo from '../../../../public/images/left-logo.jpg'
+// import logo from '../../../../public/images/avatar.png'
 
 
 class List extends Component {

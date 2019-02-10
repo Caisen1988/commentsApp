@@ -1,16 +1,49 @@
-
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes React and other helpers. It's a great starting point while
- * building robust, powerful web applications using React + Laravel.
- */
-
 require('./bootstrap');
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
-/**
- * Next, we will create a fresh React component instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
+import Login from './components/login/Login'
+import Register from './components/register/Register'
+import CommentApp from './components/CommentApp'
+import List from './components/list/List'
+import Detail from './components/list/Details'
+// import 'bootstrap/dist/css/bootstrap.css';
+// import 'bootstrap/dist/css/bootstrap-theme.css'
 
-require('./components/Example');
+
+// ReactDOM.render((
+//   <BrowserRouter>
+//   <Switch>
+//     <Route path="/login" exact  component={Login}/>
+//     <Route path="/register" exact  component={Register}/>
+//     <Route path="/" component={List}/>
+//     <Route path="/detail" component={Detail}/>
+//     <Route path="/comment" component={CommentApp}/>
+//     </Switch>
+//   </BrowserRouter>
+// ), document.getElementById('root'));
+
+class App extends Component {
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        return (
+            <BrowserRouter>
+                <div>
+                    <Switch>
+                        <Route path="/" exact  component={Login}/>
+                        <Route path="/register" exact  component={Register}/>
+                     </Switch>
+                </div>
+            </BrowserRouter>
+        );
+    }
+};
+
+ReactDOM.render(
+    <App />,
+    document.getElementById('root')
+);

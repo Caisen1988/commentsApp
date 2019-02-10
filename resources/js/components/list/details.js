@@ -1,10 +1,10 @@
 import React, {Component} from 'react'
 import CommentApp from '../CommentApp'
 import TopNav from '../topnav/topnav'
-import logo from '../static/1a81b9aaa3d52367b02b844e6437cf74.jpg'
+// import logo from '../../../../public/images/1a81b9aaa3d52367b02b844e6437cf74.jpg'
 
 
-class Detail extends Component {
+class Details extends Component {
     
     
     render() {
@@ -36,4 +36,4 @@ class Detail extends Component {
     }
 }
 
-export default Detail
+export default Details
