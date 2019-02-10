@@ -8,22 +8,29 @@ class Register extends Component {
     super(props)
     this.state = {
       username: '',
-      password: ''
+      password: '',
+      passwordConfirmation: ''
     }
-    this.register = this.register.bind(this)
-    this.handleOk = this.handleOk.bind(this)
-    this.handleChange = this.handleChange.bind(this)
   }
 
-  handleOk() {
-    if (!this.state.username) {
-      message.warn('用户名不能为空')
-    } else if (!this.state.password) {
-      message.warn('密码不能为空')
-    } else {
-      this.register(this.state)
-    }
+  // onChange = (e) => {
+  //   this.setState({ [e.target.name]: e.target.value });
+  // }
+
+  onSubmit = (e) => {
+    e.preventDefault();
+    console.log(this.state);
   }
+
+  // handleOk() {
+  //   if (!this.state.username) {
+  //     message.warn('用户名不能为空');
+  //   } else if (!this.state.password) {
+  //     message.warn('密码不能为空')
+  //   } else {
+  //     this.register(this.state)
+  //   }
+  // }
 
   register({ username, password }) {
     axios.post('/user/register', {
@@ -50,35 +57,45 @@ class Register extends Component {
   render() {
     return (
       <div className="container" id="login">
-        <form id="login-form">
+        <form id="login-form" onSubmit={this.onSubmit}>
           <h3 className="text-center">Register</h3>
+
           <div className="form-group">
-            <label>account</label>
+            <label>Account</label>
             <input
-              type="text"
-              className="form-control"
-              placeholder="Account"
-              ref="loginName"
-              required
               value={this.state.username}
-              onChange={this.handleChange}
+              onChange={this.onChange}
+              type="text"
+              name="username"
+              className="form-control"
             />
           </div>
+
           <div className="form-group">
             <label>Password</label>
             <input
-              type="password"
-              className="form-control"
-              placeholder="Password"
-              ref="loginPwd"
-              required
               value={this.state.password}
-              onChange={this.handleChange}
+              onChange={this.onChange}
+              type="password"
+              name="password"
+              className="form-control"
             />
           </div>
-          <div className="">
+
+          <div className="form-group">
+          <label>Password Confirmation</label>
+          <input
+            value={ this.state.passwordConfirmation }
+            onChange={ this.onChange }
+            type="password"
+            name="passwordConfirmation"
+            className="form-control"
+          />
+        </div>
+
+          <div className="form-group">
+            <button className="btn btn-default">注册</button>
           </div>
-          <button type="submit" className="btn btn-default" onClick={this.handleOk}>注册</button>
         </form>
       </div>
     )
